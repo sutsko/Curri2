@@ -11,15 +11,14 @@ class RecommendedCardItem extends Component {
             }>
             
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={ this.props.onImageClick }>
                 <View style={{flex: 2, flexDirection: 'column'}}>
-                    
-                    <Image style={{ height: 100, width: 100, borderRadius: 100/2, }}
-                        
+                    <Image 
+                        style={{ height: 100, width: 100, borderRadius: 100/2, }}
                         source={this.props.imageUri} />
                 </View>
 
-                </TouchableOpacity>
+            </TouchableOpacity>
 
                 <Right style={{ flex: 3, alignItems: 'flex-start', height: '100%', paddingHorizontal: 20 }}>
                     <Text>{this.props.itemName}</Text>
