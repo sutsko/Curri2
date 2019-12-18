@@ -11,8 +11,8 @@ const VALID_PASSWORD = "Itube12";
 
 export default class Login extends Component {
     state={
-        email: VALID_EMAIL, //Should be changed to "" later so no value show up. 
-        password: VALID_PASSWORD,
+        email: "", //Should be changed to "" later so no value show up. 
+        password: "",
         errors:[],
         loading:false,
      }
@@ -33,7 +33,7 @@ export default class Login extends Component {
               .signInWithEmailAndPassword(email, password);
       
             console.log(result);
-            this.setState({errors, loading: false})
+            this.setState({loading: false, email:"", password:""})
             navigation.navigate("Browse");
 
           } catch (error) {
