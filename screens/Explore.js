@@ -16,6 +16,7 @@ class Explore extends Component {
             searchString: null,
             courses: [
                 {
+                    itemId: 1,
                     itemName: "HA(it.): Introduction to Informations Systems and Informations Systems Development",
                     itemCreator: "Instructor: Oliver Hillersborg (Grade: 12)",
                     itemPrice: "Kr. 100",
@@ -24,6 +25,7 @@ class Explore extends Component {
                     rating: 5,
                 },
                 { 
+                    itemId: 2,
                     itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
                     itemCreator:"Instructor: Casper Overlade Rasmussen (Grade: 10)",
                     itemPrice:"Kr. 70",
@@ -32,6 +34,7 @@ class Explore extends Component {
                     rating:5,
                 },
                 {
+                    itemId: 3,
                     itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
                     itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 7)",
                     itemPrice:"Kr. 50",
@@ -40,6 +43,7 @@ class Explore extends Component {
                     rating:4,
                 },
                 {
+                    itemId: 4,
                     itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
                     itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 04)",
                     itemPrice:"Kr. 20",
@@ -48,6 +52,7 @@ class Explore extends Component {
                     rating:3
                 },
                 {
+                    itemId: 5,
                     itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
                     itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
                     itemPrice:"Kr. 100",
@@ -56,6 +61,7 @@ class Explore extends Component {
                     rating:5,
                 },
                 {
+                    itemId: 6,
                     itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
                     itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 10)",
                     itemPrice:"Kr. 70",
@@ -64,6 +70,7 @@ class Explore extends Component {
                     rating:5
                 },
                 {
+                    itemId: 7,
                     itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
                     itemCreator:"Instructor: Thomas Bengtsen (Grade: 7)",
                     itemPrice:"Kr. 50",
@@ -72,6 +79,7 @@ class Explore extends Component {
                     rating:4   
                 },
                 {
+                    itemId: 8,
                     itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
                     itemCreator:"Instructor: Casper Overlade Ramussen (Grade: 04)",
                     itemPrice:"Kr. 20",
@@ -80,6 +88,7 @@ class Explore extends Component {
                     rating:3
                 },
                 {
+                    itemId: 9,
                     itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
                     itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
                     itemPrice:"Kr. 100",
@@ -88,6 +97,7 @@ class Explore extends Component {
                     rating:5
                 },
                 {
+                    itemId: 10,
                     itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
                     itemCreator:"Instructor: Casper Overlade Ramussen (Grade: 10)",
                     itemPrice:"Kr. 70",
@@ -96,6 +106,7 @@ class Explore extends Component {
                     rating:5 
                 },
                 {
+                    itemId: 11,
                     itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
                     itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 7)",
                     itemPrice:"Kr. 50",
@@ -104,6 +115,7 @@ class Explore extends Component {
                     rating:4 
                 },
                 {
+                    itemId: 12,
                     itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
                     itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 04)",
                     itemPrice:"Kr. 20",
@@ -112,6 +124,7 @@ class Explore extends Component {
                     rating:4 
                 },
                 {
+                    itemId: 13,
                     itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
                     itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
                     itemPrice:"Kr. 100",
@@ -120,6 +133,7 @@ class Explore extends Component {
                     rating:5 
                 },
                 {
+                    itemId: 14,
                     itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
                     itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 10)",
                     itemPrice:"Kr. 100",
@@ -128,6 +142,7 @@ class Explore extends Component {
                     rating:5
                 },
                 {
+                    itemId: 15,
                     itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
                     itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 7)",
                     itemPrice:"Kr. 50",
@@ -136,6 +151,7 @@ class Explore extends Component {
                     rating:4 
                 },
                 {
+                    itemId: 16,
                     itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
                     itemCreator:"Instructor: Casper Overlade Rasmussen (Grade: 7)",
                     itemPrice:"Kr. 50",
@@ -210,27 +226,7 @@ class Explore extends Component {
         )
       }
     
-      //Should be deleted at some point
-      renderExplore() {
-        const { images, navigation } = this.props;
-        const mainImage = images[0];
-    
-        return (
-          <Block style={{ marginBottom: height / 3 }}>
-            <TouchableOpacity
-              style={[ styles.image, styles.mainImage ]}
-              onPress={() => navigation.navigate('Product')}
-            >
-              <Image source={mainImage} style={[styles.image, styles.mainImage]} />
-            </TouchableOpacity>
-            <Block row space="between" wrap>
-              {
-                images.slice(1).map((img, index) => this.renderImage(img, index))
-              }
-            </Block>
-          </Block>
-        )
-      }
+      
 
       renderCourseList(){
         const { images, navigation } = this.props;
@@ -250,7 +246,7 @@ class Explore extends Component {
 
 {
                 searchBasedCourses.map(course => (
-                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                    <TouchableOpacity key={course.itemId} onPress={() => navigation.navigate('Product')}>
                         <RecommendedCardItem
                             itemName={ course.itemName }
                             itemCreator={ course.itemCreator }

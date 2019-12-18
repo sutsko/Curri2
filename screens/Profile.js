@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+
 
 export default function App() {
     return (
