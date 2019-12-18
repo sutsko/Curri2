@@ -16,11 +16,6 @@ export default class Badge extends Component {
         borderRadius: size,
       },
       style,
-
-
-
-
-      
     ]);
 
     return (

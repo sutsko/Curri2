@@ -3,6 +3,7 @@ import { ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet, View } f
 
 import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
+import firebase from 'firebase';
 
 const VALID_EMAIL = "contact@curri.com";
 const VALID_PASSWORD = "Itube";
@@ -17,28 +18,30 @@ export default class Login extends Component {
      }
 
 
-    handleLogin(){
+    handleLogin = async () => {
         const {navigation} =this.props;
         const {email, password} = this.state; 
         const errors = [];
 
         Keyboard.dismiss();
 
-        this.setState({ loading:true});
-
-        //Check with backend API or with some statid data, and the state is loading while it is doing that. REIMPLEMENT WITH FIREBASE
-        //Set timeout only for demo of getting data wait period setTimeout(()=> {login code}, 2000)
-            if(email !== VALID_EMAIL){
-            errors.push('email')
-            }
-            if(password !== VALID_PASSWORD){
-                errors.push('password')
-            }
+        try {
+            this.setState({ loading:true});
+            // Her kalder vi den rette funktion i firebase auth
+            const result = await firebase
+              .auth()
+              .signInWithEmailAndPassword(email, password);
+      
+            console.log(result);
             this.setState({errors, loading: false})
+            navigation.navigate("Browse");
 
-            if(!errors.length){
-                navigation.navigate("Browse");
-            }
+          } catch (error) {
+            console.log(error);
+
+            this.setState({loading: false})
+
+          }
     }
     
     render() {

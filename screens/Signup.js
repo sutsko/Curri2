@@ -3,6 +3,7 @@ import {Alert, ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet, Vi
 
 import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
+import firebase from 'firebase';
 
 
 export default class Signup extends Component {
@@ -14,8 +15,8 @@ export default class Signup extends Component {
         loading: false
     } 
 //HER SKAL IMPLEMENTERES NOGET SP INGEN KAN HAVE DET SAMME TO GANGE. 
-    handleSignup(){
-        const {navigation} =this.props;
+    handleSignup = async () =>{
+        const {navigation} = this.props;
         const {email, username, password} = this.state; 
         const errors = [];
 
@@ -29,21 +30,35 @@ export default class Signup extends Component {
             if(!username){errors.push('username')}
             if(!password){errors.push('password')}
 
-            this.setState({errors, loading: false})
+            try{
+                // Her kalder vi den rette funktion fra firebase auth
+                const result = await firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(email, password);
+                console.log(result);
+
 
             if(!errors.length){
+                this.setState({errors, loading: false})
                 Alert.alert('Succes', 'Your account has been created',
                     [
                         {
                             text: 'Continue', onPress: () => {
-                                navigation.navigate('Browse') //Burde måske være tilbage til LogIN
+                                navigation.navigate('Login') 
                             } 
                         }
                     ],
                     { cancelable: false }
                 )
             } 
+
+            }catch(error){
+                console.log(error);
+                this.setState({loading: false});
+              }
+
     }
+
 
     render() {
         const {navigation} = this.props;
@@ -91,7 +106,7 @@ export default class Signup extends Component {
                         </Button>  
 
                         <Button onPress ={() => navigation.navigate('Login')}>
-                            <Text  gray caption center style={{textDecorationLine: 'underline'}}>Bck to Login</Text>
+                            <Text  gray caption center style={{textDecorationLine: 'underline'}}>Back to Login</Text>
                         </Button>
 
                     </Block>

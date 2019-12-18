@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import firebase from 'firebase';
 
 import {AppLoading} from 'expo';
 import {Asset} from 'expo-asset';
@@ -31,6 +32,35 @@ const images = [
 export default class App extends React.Component{
   state = {
     isLoadingComplete: false,
+    user: null,
+  }
+
+  componentWillMount() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqvLR0596zY_ih_saNlVdNzW_rroFEzKI",
+    authDomain: "curriproject.firebaseapp.com",
+    databaseURL: "https://curriproject.firebaseio.com",
+    projectId: "curriproject",
+    storageBucket: "curriproject.appspot.com",
+    messagingSenderId: "1012098305029",
+    appId: "1:1012098305029:web:f9ae815a25c93820cb606c",
+    measurementId: "G-8FKWG6G84L",
+    };
+    // Vi kontrollerer at der ikke allerede er en initialiseret instans af firebase
+    // Så undgår vi fejlen Firebase App named '[DEFAULT]' already exists (app/duplicate-app).
+    if (firebase.apps.length === 0) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    // Vi opsætter en event handler som udføres hver gang authentication state ændres,
+    // Dvs når en bruger fx logger ind/ud/tilmelder sig
+    this.authStateChangeUnsubscribe = firebase
+      .auth()
+      .onAuthStateChanged(user => {
+        console.log('onAuthStateChanged', { U: user });
+
+        this.setState({ user });
+      });
   }
 
   handleresourcesAsync = async () => {
