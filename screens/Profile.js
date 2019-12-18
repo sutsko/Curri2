@@ -1,35 +1,36 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
+                
 
                 <View style={{ alignSelf: "center" }}>
                     <View style={styles.profileImage}>
-                        <Image source={require("../assets/images/Casper.png")} style={styles.image} resizeMode="center"></Image>
+                        <Image source={require("../assets/images/Oliver.png")} style={styles.image} ></Image>
                     </View>
                 </View>
 
                 <View style={styles.infoContainer}>
-                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>Casper</Text>
-                    <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>Instruktør</Text>
+                    <Text style={[styles.text, { fontWeight: "200", fontSize: 36 }]}>Oliver</Text>
+                    <Text style={[styles.text, { color: "#AEB5BC", fontSize: 14 }]}>Instructor</Text>
                 </View>
 
                 <View style={styles.statsContainer}>
                     <View style={styles.statsBox}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>483</Text>
-                        <Text style={[styles.text, styles.subText]}>Posts</Text>
+                        <Text style={[styles.text, { fontSize: 24 }]}>10</Text>
+                        <Text style={[styles.text, styles.subText]}>Courses</Text>
                     </View>
                     <View style={[styles.statsBox, { borderColor: "#DFD8C8", borderLeftWidth: 1, borderRightWidth: 1 }]}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>45,844</Text>
-                        <Text style={[styles.text, styles.subText]}>Followers</Text>
+                        <Text style={[styles.text, { fontSize: 24 }]}>1200</Text>
+                        <Text style={[styles.text, styles.subText]}>Students</Text>
                     </View>
                     <View style={styles.statsBox}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>302</Text>
-                        <Text style={[styles.text, styles.subText]}>Following</Text>
+                        <Text style={[styles.text, { fontSize: 24 }]}>4.1</Text>
+                        <Text style={[styles.text, styles.subText]}>Raiting</Text>
                     </View>
                 </View>
 
@@ -45,9 +46,12 @@ export default function App() {
                             <Image source={require("../assets/images/Micro_Graph_3.jpg")} style={styles.image} resizeMode="cover"></Image>
                         </View>
                     </ScrollView>
+                    
                     <View style={styles.mediaCount}>
-                        <Text style={[styles.text, { fontSize: 24, color: "#DFD8C8", fontWeight: "300" }]}>70</Text>
-                        <Text style={[styles.text, { fontSize: 12, color: "#DFD8C8", textTransform: "uppercase" }]}>Media</Text>
+                        <TouchableOpacity>
+                        <Text style={[styles.text, { fontSize: 20, color: "#DFD8C8", fontWeight: "300" }]}>40</Text>
+                        <Text style={[styles.text, { fontSize: 8, color: "#DFD8C8", textTransform: "uppercase" }]}>Videos</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <Text style={[styles.subText, styles.recent]}>Recent Activity</Text>
@@ -56,7 +60,7 @@ export default function App() {
                         <View style={styles.activityIndicator}></View>
                         <View style={{ width: 250 }}>
                             <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
-                                Started following <Text style={{ fontWeight: "400" }}>Jake Challeahe</Text> and <Text style={{ fontWeight: "400" }}>Luis Poteer</Text>
+                                Just uploaded <Text style={{ fontWeight: "400" }}>VØS2</Text> and <Text style={{ fontWeight: "400" }}>VØS4</Text>
                             </Text>
                         </View>
                     </View>
@@ -65,7 +69,7 @@ export default function App() {
                         <View style={styles.activityIndicator}></View>
                         <View style={{ width: 250 }}>
                             <Text style={[styles.text, { color: "#41444B", fontWeight: "300" }]}>
-                                Started following <Text style={{ fontWeight: "400" }}>Luke Harper</Text>
+                                Updated content on <Text style={{ fontWeight: "400" }}>Inføring i organisationers opbygning og funktion</Text>
                             </Text>
                         </View>
                     </View>
@@ -164,8 +168,8 @@ const styles = StyleSheet.create({
         top: "50%",
         marginTop: -50,
         marginLeft: 30,
-        width: 100,
-        height: 100,
+        width: 60,
+        height: 60,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 12,

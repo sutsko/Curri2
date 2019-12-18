@@ -5,8 +5,8 @@ import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
 import firebase from 'firebase';
 
-const VALID_EMAIL = "contact@curri.com";
-const VALID_PASSWORD = "Itube";
+const VALID_EMAIL = "contact@curri.dk";
+const VALID_PASSWORD = "Itube12";
 
 
 export default class Login extends Component {
