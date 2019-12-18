@@ -160,9 +160,11 @@ class Welcome extends Component{
 
 Welcome.defaultProps = {
     illustrations: [
-        { id: 2, source: require('../assets/curri_done/illustrationer_curri/illustration_1.png')},
-        { id: 3, source: require('../assets/curri_done/illustrationer_curri/illustration_5.png')},
-        { id: 4, source: require('../assets/curri_done/illustrationer_curri/illustration_3.png')},
+        { id: 1, source: require('../assets/curri_done/illustrationer_curri/illustration_3.png')},
+        { id: 2, source: require('../assets/curri_done/illustrationer_curri/illustration_5.png')},
+        { id: 3, source: require('../assets/curri_done/illustrationer_curri/illustration_1.png')},
+        
+        
     ]
 }
 
