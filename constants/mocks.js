@@ -1,7 +1,7 @@
 const categories = [
  {
      //I am thinking we can edit the ID and name to macth the different courses
-     id: 'plants',
+     id: '1. Semester',
      name: '1. Semester',
      //With tags we set, i think, in which of the "faner" these should show up in. Inpirations or favorites.
      tags: ['semesters', 'your courses'],
@@ -10,35 +10,35 @@ const categories = [
      image: require ('../assets/icons_semester/first_semester.png')
  },
  {
-    id: 'seeds',
+    id: '2. Semester',
     name: '2. Semester',
     tags: ['semesters', 'favorites'],
     count: 16,
     image: require ('../assets/icons_semester/second_semester.png')
  },
  {
-    id: 'flowers',
+    id: '3. Semester',
     name: '3. Semester',
     tags: ['semesters', 'your courses'],
     count: 68,
     image: require ('../assets/icons_semester/third_semester.png')
  },
  {
-    id: 'sprayers',
+    id: '4. Semester',
     name: '4. Semester',
     tags: ['semesters', 'favorites'],
     count: 17,
     image: require ('../assets/icons_semester/fourth_semester.png')
  },
  {
-    id: 'pots',
+    id: '5. Semester',
     name: '5. Semester',
     tags: ['semesters', 'favorites'],
     count: 47,
     image: require ('../assets/icons_semester/fifth_semester.png')
  },
  {
-    id: 'fertilizers',
+    id: '6. Semester',
     name: '6. Semester',
     tags: ['semesters', 'favorites'],
     count: 17,
@@ -71,15 +71,6 @@ const products = [
 
 ];
 
-const explore = [
-    //images
-    require('../assets/images/explore_1.png'),
-    require('../assets/images/explore_2.png'),
-    require('../assets/images/explore_3.png'),
-    require('../assets/images/explore_4.png'),
-    require('../assets/images/explore_5.png'),
-    require('../assets/images/explore_6.png'),
-]
 
 //For the profile, maybe there should be an "course" to go together with "location". Eg Location:CBS Course:HAIT
 const profile= {
@@ -99,47 +90,10 @@ const profile= {
 
 };
 
-const courses= {
-    id: '',
-    name: 'Olli',
-    //Location could be their university
-    subject: 'CBS',
-    description:'',
-    //This should be their student email
-    teacher: 'student@cbs.dk',
-    //This should be their user photo
-    course_photo: require ('../assets/images/avatar.png'),
-    //Budget and monthly cap could maybe 
-    likes: 1000,
-    amount_excersizes: 5000,
-    price: true,
-    //This could be when the new semester comes, what courses and their ratings there
-    hours_of_video:false,
 
-};
-
-const lecture= {
-    id: '',
-    courseId:'',
-    name: '',
-    description:'',
-    //Location could be their university
-    lenght: '',
-    //This should be their student email
-    links: [],
-    //This should be their user photo
-    lecture_photo: require ('../assets/images/avatar.png'),
-    //Budget and monthly cap could maybe 
-    price_for_video:'',
-    rating:'',
-    excersize:'',
-};
 
 export {
     categories,
-    explore, 
     products,
     profile,
-    courses,
-    lecture
 }

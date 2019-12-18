@@ -1,5 +1,3 @@
-import React from 'react';
-import {Image} from 'react-native'
 import {createAppContainer, createStackNavigator} from 'react-navigation';
 
 import Welcome from '../screens/Welcome';
@@ -42,10 +40,7 @@ Profile
             marginBottom: 10,
             marginTop: 10,
             marginRight: 10,
-            marginLeft: 17
-            
-            
-            
+            marginLeft: 17   
         },
         headerRightContainerStyle: {
             alignItems:'center',

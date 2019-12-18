@@ -10,7 +10,7 @@ import {Block} from './components';
 
 //import all used images
 const images = [
-  require('./assets/icons/back.png'),
+  require('./assets/icons/settings.png'),
   //Can be used as caching mechanism 
 ];
 
