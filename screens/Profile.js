@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 
