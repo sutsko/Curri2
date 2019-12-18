@@ -5,7 +5,6 @@ import {Button, Divider, Block, Text, Panel} from '../components';
 import { theme, mocks } from '../constants';
 
 import * as Icon from 'react-native-vector-icons';
-import {Card, CardItem } from 'native-base';
 import { WebView } from 'react-native-webview';
 
 

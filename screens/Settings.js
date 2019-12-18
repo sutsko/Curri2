@@ -21,7 +21,7 @@ class Settings extends Component {
     }
 
     handleEdit(name, text) {
-        const{profile, editing} = this.state;
+        const{profile} = this.state;
         profile[name] = text;
 
         this.setState({profile});
@@ -31,6 +31,7 @@ class Settings extends Component {
         const {editing} = this.state
         this.setState({editing: !editing ? name : null}) //FInd ud af hvad det her betyder 
     }
+
     renderEdit (name) {
         const {profile, editing} = this.state;
 
@@ -105,7 +106,7 @@ class Settings extends Component {
                                 minimumTrackTintColor={theme.colors.secondary}
                                 maximumTrackTintColor="rgba(157,163,180,0.10)"
                                 value={this.state.budget}
-                                onValueChange={value=> this.setState({budget:value})}
+                                onValueChange={value => this.setState({budget:value})}
                             />
                             <Text caption gray right>DKK 1000</Text>
                         </Block>
