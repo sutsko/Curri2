@@ -11,8 +11,8 @@ const VALID_PASSWORD = "topgear123";
 
 export default class Login extends Component {
     state={
-        email: "test@test.dk", //Should be changed to "" later so no value show up. 
-        password: "topgear123",
+        email: VALID_EMAIL, //Should be changed to "" later so no value show up. 
+        password: VALID_PASSWORD,
         errors:[],
         loading:false,
      }
@@ -21,7 +21,7 @@ export default class Login extends Component {
     handleLogin = async () => {
         const {navigation} =this.props;
         const {email, password} = this.state; 
-        const errors = [];
+        // const errors = []; fejlhåndtering må implementeres senere. 
 
         Keyboard.dismiss();
 

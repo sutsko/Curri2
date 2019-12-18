@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {Animated, Dimensions, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import {Card, CardItem } from 'native-base';
+import {Card } from 'native-base';
 import * as Icon from 'react-native-vector-icons';
-import {Button, Input, Block, Text, Course, RecommendedCardItem, Divider} from '../components';
+import {Button, Input, Block, Text, RecommendedCardItem} from '../components';
 import {LinearGradient} from 'expo-linear-gradient';
 import { theme, mocks } from '../constants';
 
@@ -229,7 +229,7 @@ class Explore extends Component {
       
 
       renderCourseList(){
-        const { images, navigation } = this.props;
+        const { navigation } = this.props;
         // Vi finder på baggrund af indtastet søgning/data, om bogstavet ingår i vores kusus tekst. Kan evt laves om til hvad kurset starter med.
         const searchBasedCourses = this.state.courses.filter(course => {
             const { searchString } = this.state;
@@ -301,9 +301,7 @@ class Explore extends Component {
     }
 }
 
-Explore.defaultProps= {
-    images: mocks.explore
-};
+
 
 export default Explore; 
 

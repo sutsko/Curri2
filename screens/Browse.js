@@ -15,12 +15,6 @@ class Browse extends Component {
         this.setState({categories: this.props.categories});
     }
 
-    renderTab(tab){
-        const {active} = this.state; 
-        const isActive = active === tab;
-    }
-
-
     handleTab = tab =>{
         const {categories} = this.props;
         const filtered = categories.filter(
@@ -51,7 +45,7 @@ class Browse extends Component {
 
 
     render() {
-        const{profile, navigation} = this.props;
+        const{navigation} = this.props;
         const{categories} = this.state;
         const tabs = ['Semesters', 'Your Courses', 'Favorites'] //Det her skal være vores kategorier. Alle produkter, dine kurser, køb kurser. Skal ændres inde i "kategorier"
 //Find ud af hvad der sker i touchable opacity funktionen

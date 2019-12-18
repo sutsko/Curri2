@@ -4,7 +4,7 @@ import {Alert, ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet, Vi
 import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
 
-const VALID_EMAIL = "contact@curri.com";
+const VALID_EMAIL = "eksempel@eksempel.dk";
 
 export default class Forgot extends Component {
     state = {
