@@ -9,13 +9,142 @@ import { theme, mocks } from '../constants';
 
 const{width, height} = Dimensions.get('window');
  
- class Explore extends Component {
-
-    state = {
-        searchFocus: new Animated.Value(0.6),
-        searchString: null,
-
-    }
+class Explore extends Component {
+    // VI har flyttet kurser til state, så søge funktionen kan søge i state
+        state = {
+            searchFocus: new Animated.Value(0.6),
+            searchString: null,
+            courses: [
+                {
+                    itemName: "HA(it.): Introduction to Informations Systems and Informations Systems Development",
+                    itemCreator: "Instructor: Oliver Hillersborg (Grade: 12)",
+                    itemPrice: "Kr. 100",
+                    savings: "12 hours content, 7 exercises, 300 students",
+                    imageUri: require("../assets/images/Oliver.png"),
+                    rating: 5,
+                },
+                { 
+                    itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
+                    itemCreator:"Instructor: Casper Overlade Rasmussen (Grade: 10)",
+                    itemPrice:"Kr. 70",
+                    savings:"10 hours content, 6 exercises, 200 students",
+                    imageUri: require("../assets/images/Casper.png"),
+                    rating:5,
+                },
+                {
+                    itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
+                    itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 7)",
+                    itemPrice:"Kr. 50",
+                    savings:"9 hours content, 6 exercises, 220 students",
+                    imageUri:require("../assets/images/Sebastian.png"),
+                    rating:4,
+                },
+                {
+                    itemName:"HA(it.): Introduction to Informations Systems and Informations Systems Development ",
+                    itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 04)",
+                    itemPrice:"Kr. 20",
+                    savings:"6 hours content, 5 exercises, 150 students",
+                    imageUri: require("../assets/images/TRB.png"),
+                    rating:3
+                },
+                {
+                    itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
+                    itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
+                    itemPrice:"Kr. 100",
+                    savings:"12 hours content, 7 exercises, 300 students",
+                    imageUri:require("../assets/images/Oliver.png"),
+                    rating:5,
+                },
+                {
+                    itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
+                    itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 10)",
+                    itemPrice:"Kr. 70",
+                    savings:"11 hours content, 6 exercises, 270 students",
+                    imageUri:require("../assets/images/Sebastian.png"),
+                    rating:5
+                },
+                {
+                    itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
+                    itemCreator:"Instructor: Thomas Bengtsen (Grade: 7)",
+                    itemPrice:"Kr. 50",
+                    savings:"8 hours content, 5 exercises, 200 students",
+                    imageUri:require("../assets/images/TRB.png"),
+                    rating:4   
+                },
+                {
+                    itemName:"HA(it.): Inføring i organisationers opbygning og funktion ",
+                    itemCreator:"Instructor: Casper Overlade Ramussen (Grade: 04)",
+                    itemPrice:"Kr. 20",
+                    savings:"4 hours content, 4 exercises, 100 students",
+                    imageUri:require("../assets/images/Casper.png"),
+                    rating:3
+                },
+                {
+                    itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
+                    itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
+                    itemPrice:"Kr. 100",
+                    savings:"12 hours content, 7 exercises, 300 students",
+                    imageUri:require("../assets/images/Oliver.png"),
+                    rating:5
+                },
+                {
+                    itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
+                    itemCreator:"Instructor: Casper Overlade Ramussen (Grade: 10)",
+                    itemPrice:"Kr. 70",
+                    savings:"10 hours content, 6 exercises, 205 students",
+                    imageUri:require("../assets/images/Casper.png"),
+                    rating:5 
+                },
+                {
+                    itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
+                    itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 7)",
+                    itemPrice:"Kr. 50",
+                    savings:"6 hours content, 4 exercises, 120 students",
+                    imageUri:require("../assets/images/Sebastian.png"),
+                    rating:4 
+                },
+                {
+                    itemName:"HA(it.): Virksomhedens beslutningssituationer (VØS1) ",
+                    itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 04)",
+                    itemPrice:"Kr. 20",
+                    savings:"4 hours content, 3 exercises, 100 students",
+                    imageUri:require("../assets/images/TRB.png"),
+                    rating:4 
+                },
+                {
+                    itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
+                    itemCreator:"Instructor: Oliver Hillsborg (Grade: 12)",
+                    itemPrice:"Kr. 100",
+                    savings:"12 hours content, 7 exercises, 300 students",
+                    imageUri:require("../assets/images/Oliver.png"),
+                    rating:5 
+                },
+                {
+                    itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
+                    itemCreator:"Instructor: Sebastian Fagerstrand (Grade: 10)",
+                    itemPrice:"Kr. 100",
+                    savings:"10 hours content, 6 exercises, 250 students",
+                    imageUri:require("../assets/images/Sebastian.png"),
+                    rating:5
+                },
+                {
+                    itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
+                    itemCreator:"Instructor: Thomas Rune Bengtsen (Grade: 7)",
+                    itemPrice:"Kr. 50",
+                    savings:"8 hours content, 5 exercises, 150 students",
+                    imageUri:require("../assets/images/TRB.png"),
+                    rating:4 
+                },
+                {
+                    itemName:"HA(it.): Programmering og udvikling af små systemer og databaser ",
+                    itemCreator:"Instructor: Casper Overlade Rasmussen (Grade: 7)",
+                    itemPrice:"Kr. 50",
+                    savings:"8 hours content, 5 exercises, 160 students",
+                    imageUri:require("../assets/images/Casper.png"),
+                    rating:5 
+                }
+            ]
+        }
 
     handleSearchFocus(status){
         Animated.timing(
@@ -104,225 +233,37 @@ const{width, height} = Dimensions.get('window');
       }
 
       renderCourseList(){
-        const { navigation } = this.props;
+        const { images, navigation } = this.props;
+        // Vi finder på baggrund af indtastet søgning/data, om bogstavet ingår i vores kusus tekst. Kan evt laves om til hvad kurset starter med.
+        const searchBasedCourses = this.state.courses.filter(course => {
+            const { searchString } = this.state;
+            
+            if (!searchString) {
+                return true;
+            } else {
+                return course.itemName.includes(searchString);
+            }
+        });
 
         return(
-
         <Card style={{ borderColor:"transparent" }}>
-    
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Introduction to Informations Systems and Informations Systems Development "
-            itemCreator="Instructor: Oliver Hillersborg (Grade: 12)"
-            itemPrice="Kr. 100"
-            savings="12 hours content, 7 exercises, 300 students"
-            imageUri={require("../assets/images/Oliver.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
 
-    
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Introduction to Informations Systems and Informations Systems Development "
-            itemCreator="Instructor: Casper Overlade Rasmussen (Grade: 10)"
-            itemPrice="Kr. 70"
-            savings="10 hours content, 6 exercises, 200 students"
-            imageUri={require("../assets/images/Casper.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Introduction to Informations Systems and Informations Systems Development "
-            itemCreator="Instructor: Sebastian Fagerstrand (Grade: 7)"
-            itemPrice="Kr. 50"
-            savings="9 hours content, 6 exercises, 220 students"
-            imageUri={require("../assets/images/Sebastian.png")}
-        
-            rating={4}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Introduction to Informations Systems and Informations Systems Development "
-            itemCreator="Instructor: Thomas Rune Bengtsen (Grade: 04)"
-            itemPrice="Kr. 20"
-            savings="6 hours content, 5 exercises, 150 students"
-            imageUri={require("../assets/images/TRB.png")}
-            rating={3}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Inføring i organisationers opbygning og funktion "
-            itemCreator="Instructor: Oliver Hillsborg (Grade: 12)"
-            itemPrice="Kr. 100"
-            savings="12 hours content, 7 exercises, 300 students"
-            imageUri={require("../assets/images/Oliver.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Inføring i organisationers opbygning og funktion "
-            itemCreator="Instructor: Sebastian Fagerstrand (Grade: 10)"
-            itemPrice="Kr. 70"
-            savings="11 hours content, 6 exercises, 270 students"
-            imageUri={require("../assets/images/Sebastian.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Inføring i organisationers opbygning og funktion "
-            itemCreator="Instructor: Thomas Bengtsen (Grade: 7)"
-            itemPrice="Kr. 50"
-            savings="8 hours content, 5 exercises, 200 students"
-            imageUri={require("../assets/images/TRB.png")}
-            rating={4}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Inføring i organisationers opbygning og funktion "
-            itemCreator="Instructor: Casper Overlade Ramussen (Grade: 04)"
-            itemPrice="Kr. 20"
-            savings="4 hours content, 4 exercises, 100 students"
-            imageUri={require("../assets/images/Casper.png")}
-            rating={3}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Virksomhedens beslutningssituationer (VØS1) "
-            itemCreator="Instructor: Oliver Hillsborg (Grade: 12)"
-            itemPrice="Kr. 100"
-            savings="12 hours content, 7 exercises, 300 students"
-            imageUri={require("../assets/images/Oliver.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Virksomhedens beslutningssituationer (VØS1) "
-            itemCreator="Instructor: Casper Overlade Ramussen (Grade: 10)"
-            itemPrice="Kr. 70"
-            savings="10 hours content, 6 exercises, 205 students"
-            imageUri={require("../assets/images/Casper.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Virksomhedens beslutningssituationer (VØS1) "
-            itemCreator="Instructor: Sebastian Fagerstrand (Grade: 7)"
-            itemPrice="Kr. 50"
-            savings="6 hours content, 4 exercises, 120 students"
-            imageUri={require("../assets/images/Sebastian.png")}
-            rating={4}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Virksomhedens beslutningssituationer (VØS1) "
-            itemCreator="Instructor: Thomas Rune Bengtsen (Grade: 04)"
-            itemPrice="Kr. 20"
-            savings="4 hours content, 3 exercises, 100 students"
-            imageUri={require("../assets/images/TRB.png")}
-            rating={4}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Programmering og udvikling af små systemer og databaser "
-            itemCreator="Instructor: Oliver Hillsborg (Grade: 12)"
-            itemPrice="Kr. 100"
-            savings="12 hours content, 7 exercises, 300 students"
-            imageUri={require("../assets/images/Oliver.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Programmering og udvikling af små systemer og databaser "
-            itemCreator="Instructor: Sebastian Fagerstrand (Grade: 10)"
-            itemPrice="Kr. 100"
-            savings="10 hours content, 6 exercises, 250 students"
-            imageUri={require("../assets/images/Sebastian.png")}
-            rating={5}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Programmering og udvikling af små systemer og databaser "
-            itemCreator="Instructor: Thomas Rune Bengtsen (Grade: 7)"
-            itemPrice="Kr. 50"
-            savings="8 hours content, 5 exercises, 150 students"
-            imageUri={require("../assets/images/TRB.png")}
-            rating={4}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-            onPress={() => navigation.navigate('Product')}
-            >
-            <RecommendedCardItem
-            itemName="HA(it.): Programmering og udvikling af små systemer og databaser "
-            itemCreator="Instructor: Casper Overlade Rasmussen (Grade: 7)"
-            itemPrice="Kr. 50"
-            savings="8 hours content, 5 exercises, 160 students"
-
-            imageUri={require("../assets/images/Casper.png")}
-
-
-            rating={5}
-        />
-        </TouchableOpacity>
+{
+                searchBasedCourses.map(course => (
+                    <TouchableOpacity onPress={() => navigation.navigate('Product')}>
+                        <RecommendedCardItem
+                            itemName={ course.itemName }
+                            itemCreator={ course.itemCreator }
+                            itemPrice={ course.itemPrice }
+                            savings={ course.savings }
+                            imageUri={ course.imageUri }
+                            rating={ course.rating }
+                            onImageClick={ () => navigation.navigate("Profile") }
+                        />
+                    </TouchableOpacity>
+                ))
+            }
+            
 
 
         </Card>
