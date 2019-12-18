@@ -63,7 +63,7 @@ class Browse extends Component {
                     <Text h1 bold> Curri(ous)? </Text>
                     <Button onPress={() => navigation.navigate('Settings')}>
                      <Image
-                     source={profile.avatar} //Reffering to the props
+                     source={require("../assets/icons/settings.png")} //Reffering to the props
                      style={styles.avatar}
                      />
                     </Button>

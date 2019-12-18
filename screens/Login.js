@@ -5,14 +5,14 @@ import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
 import firebase from 'firebase';
 
-const VALID_EMAIL = "contact@curri.dk";
-const VALID_PASSWORD = "Itube12";
+const VALID_EMAIL = "test@test.dk";
+const VALID_PASSWORD = "topgear123";
 
 
 export default class Login extends Component {
     state={
-        email: "", //Should be changed to "" later so no value show up. 
-        password: "",
+        email: "test@test.dk", //Should be changed to "" later so no value show up. 
+        password: "topgear123",
         errors:[],
         loading:false,
      }
