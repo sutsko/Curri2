@@ -32,12 +32,20 @@ Profile
             borderBottomColor: "transparent",
             elevation: 0, 
         },
-        headerBackImage: <Image source={require('../assets/icons/back.png')} />, //This is the return button 
+         
         headerBackTitle: null,
         headerLeftContainerStyle: {
             alignItems:'center',
             marginLeft: theme.sizes.base*2,
             paddingRight: theme.sizes.base,
+            borderRadius: 100,
+            marginBottom: 10,
+            marginTop: 10,
+            marginRight: 10,
+            marginLeft: 17
+            
+            
+            
         },
         headerRightContainerStyle: {
             alignItems:'center',
