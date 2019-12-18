@@ -46,6 +46,8 @@ export default class Block extends Component {
             marginBottom: margin[2],
             marginLeft: margin[3],
           }
+
+          
       }
     }
   }
