@@ -21,15 +21,15 @@ export default function App() {
 
                 <View style={styles.statsContainer}>
                     <View style={styles.statsBox}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>10</Text>
+                        <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>10</Text>
                         <Text style={[styles.text, styles.subText]}>Courses</Text>
                     </View>
                     <View style={[styles.statsBox, { borderColor: "#DFD8C8", borderLeftWidth: 1, borderRightWidth: 1 }]}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>1200</Text>
-                        <Text style={[styles.text, styles.subText]}>Students</Text>
+                        <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>1200</Text>
+                        <Text style={[styles.text, styles.subText,]}>Students</Text>
                     </View>
                     <View style={styles.statsBox}>
-                        <Text style={[styles.text, { fontSize: 24 }]}>4.1</Text>
+                        <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>4.1</Text>
                         <Text style={[styles.text, styles.subText]}>Raiting</Text>
                     </View>
                 </View>
@@ -37,13 +37,41 @@ export default function App() {
                 <View style={{ marginTop: 32 }}>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <View style={styles.mediaImageContainer}>
-                            <Image source={require("../assets/images/Micro_Graph_2.jpg")} style={styles.image} resizeMode="cover"></Image>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/distribuerede_systemer_curri.png")} style={styles.image} resizeMode="cover"></Image>
                         </View>
                         <View style={styles.mediaImageContainer}>
-                            <Image source={require("../assets/images/Micro_Graph_3.jpg")} style={styles.image} resizeMode="cover"></Image>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/finansiering_curri.png")} style={styles.image} resizeMode="cover"></Image>
                         </View>
                         <View style={styles.mediaImageContainer}>
-                            <Image source={require("../assets/images/Micro_Graph_3.jpg")} style={styles.image} resizeMode="cover"></Image>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/intern_organisering_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/it_kontrakter_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/it-forandrings_ledelse_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/makro_økonomi.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/organisation_forsat_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/prgrammering_database-systemer_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/regnskabsvæsen_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/økonomistyring_curri.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/bachelor_projekt_curri_1.png")} style={styles.image} resizeMode="cover"></Image>
+                        </View>
+                        <View style={styles.mediaImageContainer}>
+                            <Image source={require("../assets/curri_done/ikoner_curri_1/bachelor_projekt_curri_3.png")} style={styles.image} resizeMode="cover"></Image>
                         </View>
                     </ScrollView>
                     
@@ -190,7 +218,7 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     activityIndicator: {
-        backgroundColor: "#CABFAB",
+        backgroundColor: "#F9D976",
         padding: 4,
         height: 12,
         width: 12,
