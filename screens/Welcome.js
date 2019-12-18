@@ -125,10 +125,7 @@ class Welcome extends Component{
         
         return(
          <Block>
-             
-             
-
-                <Block center bottom flex={0.4}>
+                <Block center bottom flex={0.4} >
                     <Text h1 center bold>
                         Your Study.
                         <Text h1 secondary> Easier.</Text>
@@ -136,7 +133,7 @@ class Welcome extends Component{
                     <Text h3 gray2 style={{marginTop:theme.sizes.padding/2}}>Enjoy your curri(osity). </Text>
                 </Block>
                 
-                <Block center middle> 
+                <Block center middle style={{marginTop:theme.sizes.padding}}> 
                 {this.renderIllustrations()}
                 {this.renderSteps()}
             </Block>
@@ -163,9 +160,9 @@ class Welcome extends Component{
 
 Welcome.defaultProps = {
     illustrations: [
-        { id: 1, source: require('../assets/icons_semester/photo.png')},
-        { id: 4, source: require('../assets/icons_semester/photo.png')},
-        
+        { id: 2, source: require('../assets/curri_done/illustrationer_curri/illustration_1.png')},
+        { id: 3, source: require('../assets/curri_done/illustrationer_curri/illustration_5.png')},
+        { id: 4, source: require('../assets/curri_done/illustrationer_curri/illustration_3.png')},
     ]
 }
 
@@ -174,7 +171,7 @@ export default Welcome;
 const styles = StyleSheet.create({
     stepsContainer: {
         position: 'absolute',
-        bottom: theme.sizes.base*3,
+        bottom: theme.sizes.base*2,
         right: 0,
         left: 0.
     },
