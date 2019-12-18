@@ -3,6 +3,17 @@ import { StyleSheet, View, Animated } from 'react-native'
 
 import { theme } from '../constants';
 
+
+
+
+
+
+
+
+
+
+
+
 export default class Block extends Component {
   handleMargins() {
     const { margin } = this.props;
@@ -47,7 +58,7 @@ export default class Block extends Component {
             marginLeft: margin[3],
           }
 
-          
+
       }
     }
   }
