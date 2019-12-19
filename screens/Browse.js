@@ -5,7 +5,8 @@ import {Card, Button, Block, Text} from '../components';
 import { theme, mocks } from '../constants';
 
 class Browse extends Component {
-    //Her sætter vi "Semesters" som predefineret aktiv når appen åbnes
+    //Her sætter vi "Semesters" som predefineret aktiv når appen åbnes. Denne initieres inde i renderTab() funktionen, hvori der er en konstant kaldet "isActive"
+    //som afhænger af denne state-værdi
     state={
         active: 'Semesters',
         categories: [],
@@ -24,12 +25,19 @@ class Browse extends Component {
         this.setState({active: tab, categories: filtered});
     }
 
-    //Her importerer vi nogle predefinerede components for at kunne lave placere/designe positionerne af vores tabs
+    /* 
+    Denne funktion returnerer et template for tab-sektionerne. 
+    Her bruger vi TouchableOpacity komponenten som "parent component" hvilket vi endvidere har konfigureret med forskellige props: 
+    - key, bruges til at identificere hvilken tab der er i brug prop
+    - derudover har vi også nogle styling properties på både TouchableOpacity og Text der afhænger af hvad værdien af isActive state-værdien er.
+     */
+
     renderTab(tab){
     const {active} =this.state;
     const isActive = active === tab;
     return (
         // Denne funktion viser designet af den pågældende tab man har trykket på. Altså om dens state er akitv og derfor får en anden style
+        /* onPress eventet i TouchableOpacity komponenten gør, at state af isActive state variablen ændrer sig på baggrund af hvad der klikkes på */
         <TouchableOpacity
         key={`tab-${tab}`}
         onPress={() => this.handleTab(tab)}
@@ -47,18 +55,19 @@ class Browse extends Component {
     render() {
         const{navigation} = this.props;
         const{categories} = this.state;
+        /*Vi definer et array af tabs, med date svarende til vores tab titler */
         const tabs = ['Semesters', 'Your Courses', 'Favorites'] 
 
-//Dette er implementeringen af vores header funktion med tilhørende text og settings icon samt "onPress" skal føres os videre til settings siden.
-//under dette laver vi vores array af tabs.
+        //Dette er implementeringen af vores header funktion med tilhørende text og settings icon samt "onPress" skal føres os videre til settings siden.
+        //under dette laver vi vores array af tabs.
         return (
             <Block>
                 <Block flex={false} row center space="between" style={styles.header}>
                     <Text h1 bold> Curri(ous)? </Text>
                     <Button onPress={() => navigation.navigate('Settings')}>
                      <Image
-                     source={require("../assets/icons/settings.png")} //Reffering to the props
-                     style={styles.avatar}
+                     source={require("../assets/icons/settings.png")} 
+                     style={styles.settingsbutton}
                      />
                     </Button>
                 </Block>
@@ -93,7 +102,6 @@ class Browse extends Component {
 }
 //Jeg tror at de props, er det samme som at sende en class med fra java. Her sender vi bare et element fra den anden side med. a
 Browse.defaultProps = {
-    profile: mocks.profile,
     categories: mocks.categories,
 }
 export default Browse;
@@ -103,7 +111,7 @@ const styles = StyleSheet.create({
     header: {
         paddingHorizontal: theme.sizes.base * 2 
     },
-    avatar: {
+    settingsbutton: {
         height: theme.sizes.base * 1.9,
         width: theme.sizes.base * 1.9,
         borderRadius: (theme.sizes.base * 2.2)/2
