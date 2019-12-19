@@ -11,7 +11,11 @@ const{width, height} = Dimensions.get('window');
  
 class Explore extends Component {
     // VI har flyttet kurser til state, så søge funktionen kan søge i state
-        state = {
+    /* Forklaring af state: Vi vil gerne kunne gøre searchbaren større og mindre afhængigt af om man har trykket ind i den.
+     Dertil har vi importeret Animated komponenten, da den tillader os at lave konfigurationer af det animerede komponent (searchbaren) 
+     Vi har desude flyttet alle kurser til state, så søge-funktionen kan filtere i state, på baggrund af den searchstring der bliver indtastet */
+        
+    state = {
             searchFocus: new Animated.Value(0.6),
             searchString: null,
             courses: [
@@ -162,21 +166,32 @@ class Explore extends Component {
             ]
         }
 
+    /*Denne funktion håndterer forstørrelsen af selve søge-baren. På baggrund af en status sendt med fra renderSearch, minimerer eller formindsker søgebaren fra/til 
+    værdierne 0.8 og 0.6. Transisitionen mellem de to er sat til 150 millisekunder . */
     handleSearchFocus(status){
         Animated.timing(
             this.state.searchFocus,
             {
-                toValue: status ? 0.8 : 0.6, // Status === true, increase flex size
+                toValue: status ? 0.8 : 0.6, // Status === true, forstør flex size. 
                 duration: 150, // ms
             }
-        ).start()
+        ).start() //Når funktionen triggeres, vil animationen starte her. 
     }
     
     renderSearch(){
+        /* 
+        Vi tager searchString og searchFocus fra state og bruger disse til at definere hvornår nogen isEditing. Altså hvornår nogen søger i programmet.
+        isEditing kan enten være sand eller falsk
+        */
         const {searchString, searchFocus} = this.state;
         const isEditing = searchFocus && searchString;
 
         //find ud af hvad onrightpress funktionens syntax
+
+        /*Vi har i <Input> tilføjet onRightPress, hvis event bliver triggered af hvorvidt isEditing er sandt eller falsk.
+        På baggrund af isEditing kan vi enten ændre "searchstring" til null eller ikke gøre noget. Ikonet baserer sig også på isEditing værdien:
+        Er isEditing sand, vil "close" ikonet vises, og er det falsk vil "search" ikonet vises.
+        onBlur og onFocus referer til hvorvidt man tilgår eller forlader et, i det her tilfælde, Input-felt */
 
         return(
             <Block animated middle flex={searchFocus} style={styles.search}>
