@@ -186,7 +186,6 @@ class Explore extends Component {
         const {searchString, searchFocus} = this.state;
         const isEditing = searchFocus && searchString;
 
-        //find ud af hvad onrightpress funktionens syntax
 
         /*Vi har i <Input> tilføjet onRightPress, hvis event bliver triggered af hvorvidt isEditing er sandt eller falsk.
         På baggrund af isEditing kan vi enten ændre "searchstring" til null eller ikke gøre noget. Ikonet baserer sig også på isEditing værdien:
@@ -216,33 +215,7 @@ class Explore extends Component {
             </Block>
         )
     }
-
-    //tjek hvordan man bruger den der key i touchable opacity
-    renderImage(img, index) {
-        const { navigation } = this.props;
-        const sizes = Image.resolveAssetSource(img);
-        const fullWidth = width - (theme.sizes.padding * 2.5);
-        const resize = (sizes.width * 100) / fullWidth;
-        const imgWidth = resize > 75 ? fullWidth : sizes.width * 1;
     
-        return (
-          <TouchableOpacity
-            key={`img-${index}`}
-            onPress={() => navigation.navigate('Product')}
-          >
-            <Image
-              source={img}
-              style={[
-                styles.image,
-                { minWidth: imgWidth, maxWidth: imgWidth }
-              ]}
-            />
-          </TouchableOpacity>
-        )
-      }
-    
-      
-
       renderCourseList(){
         const { navigation } = this.props;
         // Vi finder på baggrund af indtastet søgning/data, om bogstavet ingår i vores kusus tekst. Kan evt laves om til hvad kurset starter med.
@@ -261,6 +234,7 @@ class Explore extends Component {
 
 {
                 searchBasedCourses.map(course => (
+                    //Vi sender videre til Product skærmen ved at tilpasse det kursus-id'et. Vi sender dog altid til vøs lige nu. 
                     <TouchableOpacity key={course.itemId} onPress={() => navigation.navigate('Product')}>
                         <RecommendedCardItem
                             itemName={ course.itemName }
@@ -281,6 +255,7 @@ class Explore extends Component {
         )
       }
 
+      //RenderFooter er bare for det designmæssige udtryk. Filterfunktionen må vi implementere senere. 
     renderFooter(){
         return(
             <LinearGradient 
