@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 
-
+//Her  opsættes og designes vores profilside
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 
-
+                
                 <View style={{ alignSelf: "center" }}>
                     <View style={styles.profileImage}>
                         <Image source={require("../assets/images/Oliver.png")} style={styles.image} ></Image>

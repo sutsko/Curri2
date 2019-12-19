@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: theme.sizes.base * 2 
     },
     avatar: {
-        height: theme.sizes.base * 2.2,
-        width: theme.sizes.base * 2.2,
+        height: theme.sizes.base * 1.9,
+        width: theme.sizes.base * 1.9,
         borderRadius: (theme.sizes.base * 2.2)/2
     },
     tabs:{
