@@ -80,7 +80,14 @@ class Browse extends Component {
                 >
                     <Block flex={false} row space="between" style={styles.categories}> 
                     {categories.map(category => (
-                    // Her laves funktionen der gør vi kan trykke på et semester og blive viderstillet til Explore screen samt designet på disse kategorier
+                    /* ^^ I forhold til ovenstpende map-funktion: Siden kategori-prop'en er i arrayformat, itererer vi gennemm hver eneste af dem ved bruge map() 
+                    funktionen. Sådan får vi kategori-kortet for hver sektion. Derfor får TouchableOpacity komponenten nu key-prop'en for hver kategori og identificerer dem.
+                     
+                    
+                    Her laves funktionen der gør vi kan trykke på et semester og blive viderstillet til Explore screen samt designet på disse kategorier.
+                    Vi bruger ScrollView som hovedkomponent, hvor vi har brugt showsVerticalScrollIndicator til at fjerne scroll-baren. TouchableOpacity komponenten
+                    bruger et onPress event til at navigere til den rigtige Explore/katorgi skærm. Vi har ikke differentieret på det endnu, og sender alt til samme side. 
+                    */
                      <TouchableOpacity 
                      key = {category.name}
                      onPress={() => navigation.navigate('Explore', {category})}>
@@ -100,6 +107,7 @@ class Browse extends Component {
         )
     }
 }
+
 //Jeg tror at de props, er det samme som at sende en class med fra java. Her sender vi bare et element fra den anden side med. a
 Browse.defaultProps = {
     categories: mocks.categories,
