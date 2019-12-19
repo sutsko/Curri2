@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Alert, ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet, View } from 'react-native'
+import {Alert, ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet } from 'react-native'
 
 import {Button, Block, Text, Input} from '../components';
 import { theme } from '../constants';
@@ -14,31 +14,21 @@ export default class Signup extends Component {
         errors: [],
         loading: false
     } 
-//HER SKAL IMPLEMENTERES NOGET SP INGEN KAN HAVE DET SAMME TO GANGE. 
+
     handleSignup = async () =>{
         const {navigation} = this.props;
-        const {email, username, password} = this.state; 
+        const {email, password} = this.state; 
         const errors = [];
 
-        Keyboard.dismiss();
-
-        this.setState({ loading: true});
-
-        //Check with backend API or with some statid data, and the state is loading while it is doing that. REIMPLEMENT WITH FIREBASE
-        //Set timeout only for demo of getting data wait period setTimeout(()=> {login code}, 2000)
-            if(!email){errors.push('email')}
-            if(!username){errors.push('username')}
-            if(!password){errors.push('password')}
-
             try{
+                Keyboard.dismiss();
+                this.setState({ loading: true});
                 // Her kalder vi den rette funktion fra firebase auth
                 const result = await firebase
                     .auth()
                     .createUserWithEmailAndPassword(email, password);
                 console.log(result);
 
-
-            if(!errors.length){
                 this.setState({errors, loading: false})
                 Alert.alert('Succes', 'Your account has been created',
                     [
@@ -50,7 +40,7 @@ export default class Signup extends Component {
                     ],
                     { cancelable: false }
                 )
-            } 
+            
 
             }catch(error){
                 console.log(error);
@@ -63,7 +53,13 @@ export default class Signup extends Component {
     render() {
         const {navigation} = this.props;
         const {loading, errors} = this.state;
+
+         /* Vi har defineret hasErrors til en funktion som skal returnere en fejlværdi, der afhænger af key-værdien fra errors array'et en. Tror ikke helt vi kan nå dette inden */
         const hasErrors = key => errors.includes(key) ? styles.hasErrors : null; 
+
+        /*Vi bruger KeyboardAvoidingView som vores såkaldte "parent component". Denne komponent hjælper os til at få dets underkomponenter ind i sig, som altid er
+         over keyboardet, når keyboardet bliver triggeret som følge af brugen for inputs. 
+         */
 
         return (
             <KeyboardAvoidingView style={styles.signup} behavior="padding">
@@ -76,7 +72,7 @@ export default class Signup extends Component {
                         label="Email"
                         error={hasErrors('email')}
                         style={[styles.input, hasErrors('email') ]}
-                        defaultValue={this.state.email} //Har det der password måske noget med "key" at gøre i den svære linje langt oppe?
+                        defaultValue={this.state.email} 
                         onChangeText = {text => this.setState({email: text})}
                         />
 
@@ -84,7 +80,7 @@ export default class Signup extends Component {
                         label="Username"
                         error={hasErrors('username')}
                         style={[styles.input, hasErrors('username') ]}
-                        defaultValue={this.state.username} //Har det der password måske noget med "key" at gøre i den svære linje langt oppe?
+                        defaultValue={this.state.username} 
                         onChangeText = {text => this.setState({username: text})}
                         />
 
@@ -93,7 +89,7 @@ export default class Signup extends Component {
                         label="Password"
                         error={hasErrors('password')}
                         style={[styles.input, hasErrors('password') ]}
-                        defaultValue={this.state.password} //Har det der password måske noget med "key" at gøre i den svære linje langt oppe?
+                        defaultValue={this.state.password}
                         onChangeText = {text => this.setState({password: text})}
                         />
 
@@ -102,7 +98,6 @@ export default class Signup extends Component {
                             /> : 
                             <Text bold white center>Sign Up</Text>    
                         }
-                            
                         </Button>  
 
                         <Button onPress ={() => navigation.navigate('Login')}>
