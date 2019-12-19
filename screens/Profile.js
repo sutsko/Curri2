@@ -1,7 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 
-//Her  opsættes og designes vores profilside
+//Her  opsættes og designes vores profilside. Koden følger vertikalt indholdet af profilsiden
+// Linje: 18. Profilbilledet indsættes og sættes til at være i midten
+// Linje: 24. Der indsættes intoContainer med informationer om navn og funktion
+// Linje: 29. Der indsættes en række statsContainer der viser information om person, der er sat touchableOpacaty hvis der skulle videre
+// udvikles flere screens.
+// Linje: 50. Der indsættes mediaImageContainer som indeholder billeder fra mange af vores kurser. Der indsættes horizontalScrollIndicator
+// Linje: 91. Der indsættes mediaCount som samlet andtal videoer
+// Linje: 98. Der indsættes recent activity element der viser opdateringer fra instruktør
+// der bliver også indsat prikker til hver status.
 export default function App() {
     return (
         <SafeAreaView style={styles.container}>
@@ -20,22 +28,28 @@ export default function App() {
                 </View>
 
                 <View style={styles.statsContainer}>
-                    <View style={styles.statsBox}>
+                    <View style={styles.statsBox}> 
+                    <TouchableOpacity>
                         <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>10</Text>
                         <Text style={[styles.text, styles.subText]}>Courses</Text>
+                    </TouchableOpacity>
                     </View>
                     <View style={[styles.statsBox, { borderColor: "#DFD8C8", borderLeftWidth: 1, borderRightWidth: 1 }]}>
+                    <TouchableOpacity>
                         <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>1200</Text>
                         <Text style={[styles.text, styles.subText,]}>Students</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.statsBox}>
+                    <TouchableOpacity>
                         <Text style={[styles.text, { fontSize: 24, color: "#F39F86" }]}>4.1</Text>
                         <Text style={[styles.text, styles.subText]}>Raiting</Text>
+                    </TouchableOpacity>
                     </View>
                 </View>
 
                 <View style={{ marginTop: 32 }}>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={true}>
                         <View style={styles.mediaImageContainer}>
                             <Image source={require("../assets/curri_done/ikoner_curri_1/distribuerede_systemer_curri.png")} style={styles.image} resizeMode="cover"></Image>
                         </View>
@@ -106,15 +120,17 @@ export default function App() {
         </SafeAreaView>
     );
 }
-
+// De forskellige elementer designes med farver og størrelser
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FFF"
     },
+    // Text for en farve
     text: {
         color: "#52575D"
     },
+    // Billede for størrelse
     image: {
         flex: 1,
         height: 200,
@@ -138,37 +154,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         overflow: "hidden"
     },
-    dm: {
-        backgroundColor: "#41444B",
-        position: "absolute",
-        top: 20,
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    active: {
-        backgroundColor: "#34FFB9",
-        position: "absolute",
-        bottom: 28,
-        left: 10,
-        padding: 4,
-        height: 20,
-        width: 20,
-        borderRadius: 10
-    },
-    add: {
-        backgroundColor: "#41444B",
-        position: "absolute",
-        bottom: 0,
-        right: 0,
-        width: 60,
-        height: 60,
-        borderRadius: 30,
-        alignItems: "center",
-        justifyContent: "center"
-    },
+    // Får sat placering og margin til top
     infoContainer: {
         alignSelf: "center",
         alignItems: "center",
@@ -188,7 +174,8 @@ const styles = StyleSheet.create({
         height: 200,
         borderRadius: 12,
         overflow: "hidden",
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        marginBottom: 30
     },
     mediaCount: {
         backgroundColor: "#41444B",

@@ -46,12 +46,14 @@ class Settings extends Component {
         return <Text bold> {profile[name]}</Text>
     }
 
-
+    // Dette er implementeringen af vores header funktion med tilhørende text og settings icon
+    // Linje: 65. Dette viser en Block med informationer om username, location og email. 
+    // Username og Location har fået implementeret en "editing" funktioner der gør det muligt at ændre i informationerne
+    // samt at kunne gemme efterfølgende
+    // Linje 96. Her implmenteres sliders som efterfølgende får forskellige props, som eks. maks/min værdi, længde mm.
+    //
     render() {
-        //Tjek hvad space=between kommer fra. Space=between betyder at elementerne kommer i hver deres side.  margin={[10,0]} styles={styles.inputRow}
-        // tjek hvad  {editing ? 'Edit' : 'Save'} betyder 
         const {profile, editing} = this.state;
-
         return (
             <Block>
                 <Block flex={false} row center space="between" style={styles.header}>
@@ -63,7 +65,6 @@ class Settings extends Component {
                         />
                     </Button>
                 </Block>
-
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <Block style={styles.inputs}>
                         <Block row space="between" margin={[10,0]} styles={styles.inputRow}>
@@ -91,7 +92,6 @@ class Settings extends Component {
                             </Block>
                         </Block>
                     </Block>
-
                     <Divider margin={[theme.sizes.base, theme.sizes.base*2 ]}/>
 
                     <Block style={styles.sliders}>
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
         width: theme.sizes.base * 2.2,
         borderRadius: theme.sizes.base * 2.2/2,
     }, 
+    // Her designes vores input 
     inputs:{
         marginTop:theme.sizes.base*0.7,
         paddingHorizontal: theme.sizes.base*2,

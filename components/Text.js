@@ -4,6 +4,8 @@ import { Text, StyleSheet } from "react-native";
 
 import { theme } from "../constants";
 
+// Denne component indeholder flere text design muligheder end react native som standard giver os. 
+
 export default class Typography extends Component {
   render() {
     const {
@@ -26,8 +28,8 @@ export default class Typography extends Component {
       light,
       center,
       right,
-      spacing, // letter-spacing
-      height, // line-height
+      spacing, 
+      height, 
       // colors
       color,
       accent,
@@ -67,7 +69,6 @@ export default class Typography extends Component {
       right && styles.right,
       color && styles[color],
       color && !styles[color] && { color },
-      // color shortcuts
       accent && styles.accent,
       primary && styles.primary,
       secondary && styles.secondary,
@@ -76,7 +77,7 @@ export default class Typography extends Component {
       white && styles.white,
       gray && styles.gray,
       gray2 && styles.gray2,
-      style // rewrite predefined styles
+      style 
     ];
 
     return (
@@ -88,7 +89,6 @@ export default class Typography extends Component {
 }
 
 const styles = StyleSheet.create({
-  // default style
   text: {
     fontSize: theme.sizes.font,
     color: theme.colors.black

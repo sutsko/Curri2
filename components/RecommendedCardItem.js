@@ -3,6 +3,8 @@ import {View, Text, StyleSheet,Image, TouchableOpacity } from "react-native";
 import { Card, CardItem, Right } from 'native-base'
 import StarRating from 'react-native-star-rating';
 
+// 
+
 class RecommendedCardItem extends Component {
     render() {
         return (

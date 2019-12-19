@@ -3,6 +3,9 @@ import { Switch, Platform } from 'react-native';
 
 import { theme } from '../constants';
 
+// Denne component gør det muligt at implementere switch buttons, som er knapper hvor der er flere muligheder på. 
+// Dette bruges i settings med eksempelvis "notificaiton" knappen.
+
 const GRAY_COLOR = 'rgba(168, 182, 200, 0.30)';
 
 export default class SwitchInput extends React.PureComponent {
