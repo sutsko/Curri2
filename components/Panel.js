@@ -2,6 +2,8 @@ import * as React from 'react';
 import { List } from 'react-native-paper';
 import { theme } from '../constants';
 
+// Denne component gør det muligt at implementere panel i vores product.js screen der viser en lang række hardcoded informationer/unndermapper
+
 class Panel extends React.Component {
   state = {
     expanded: true
