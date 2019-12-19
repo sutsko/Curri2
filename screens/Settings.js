@@ -5,7 +5,7 @@ import Slider from 'react-native-slider';
 import {Divider, Button, Block, Text, Switch} from '../components';
 import { theme, mocks } from '../constants';
 
-
+// Her implementeres prædefinerede variabler som standard , så man har noget at ændre udfra når man åbner app'en.
 class Settings extends Component {
     state={
         budget: 850,
@@ -15,23 +15,24 @@ class Settings extends Component {
         editing: null,
         profile: {},
     }
-
+    // Vi initierer profil state variabel til profil prop data
     componentDidMount(){
         this.setState({profile: this.props.profile});
     }
-
+    // Denne funktion tager navnet på brugeren og tekst værdi fra input component for at kunne ændre og gemme i input felterne.
     handleEdit(name, text) {
         const{profile} = this.state;
         profile[name] = text;
 
         this.setState({profile});
     }
-
+    // Denne funktioner gør det muligt for os at ændre i informationer ved at klikke på "edit" knappen.
     toggleEdit (name) {
         const {editing} = this.state
-        this.setState({editing: !editing ? name : null}) //FInd ud af hvad det her betyder 
+        // Vi ændrer "editing" state på baggrund af den værdi fra edit, til enten navn eller null
+        this.setState({editing: !editing ? name : null}) 
     }
-
+    // Denne funktion retunerer enten TextInput eller Test componenten baseret på værdien fra editing state værdien som er sat af toogleEdit
     renderEdit (name) {
         const {profile, editing} = this.state;
 
@@ -47,11 +48,11 @@ class Settings extends Component {
     }
 
     // Dette er implementeringen af vores header funktion med tilhørende text og settings icon
-    // Linje: 65. Dette viser en Block med informationer om username, location og email. 
-    // Username og Location har fået implementeret en "editing" funktioner der gør det muligt at ændre i informationerne
-    // samt at kunne gemme efterfølgende
+    // Linje: 65. Dette viser billede af den brugte profil 
+    // Linje 73. Her implementeres to Block components der holder template for lokation og email inputs. De har fået InputRow som style navn
     // Linje 96. Her implmenteres sliders som efterfølgende får forskellige props, som eks. maks/min værdi, længde mm.
-    //
+    // Linje 133. Her implmenteres to Block med hhv notification og newsletter. Denne Block wrapper en swtich som gør 
+    // vi kan skifte state gennem onValueChange
     render() {
         const {profile, editing} = this.state;
         return (
@@ -60,7 +61,7 @@ class Settings extends Component {
                     <Text h1 bold>Settings</Text>
                     <Button >
                         <Image
-                        source={profile.avatar} //Reffering to the props
+                        source={profile.avatar} 
                         style={styles.avatar}
                         />
                     </Button>
@@ -160,6 +161,7 @@ Settings.defaultProps = {
 
 export default Settings;
 
+// Her styles forskellige elementer i størrelser og positioner
 const styles = StyleSheet.create({
     header: {
         paddingHorizontal: theme.sizes.base * 2 
