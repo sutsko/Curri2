@@ -4,6 +4,8 @@ import { StyleSheet } from 'react-native';
 import Block from './Block';
 import { theme } from '../constants';
 
+// Denne component gør det muligt at implementere horizontal divider i vores screens. Dette bruges når vi skal have en afstand mellem sektioner af indehold
+
 export default class Divider extends Component {
   render() {
     const { color, style, ...props } = this.props;

@@ -5,7 +5,7 @@ import {Card, Button, Block, Text} from '../components';
 import { theme, mocks } from '../constants';
 
 class Browse extends Component {
-
+    //Her sætter vi "Semesters" som predefineret aktiv når appen åbnes
     state={
         active: 'Semesters',
         categories: [],
@@ -14,7 +14,7 @@ class Browse extends Component {
     componentDidMount(){
         this.setState({categories: this.props.categories});
     }
-
+    // Denne funktion filtrere hvilke semesters der er under hvilke over kategorier
     handleTab = tab =>{
         const {categories} = this.props;
         const filtered = categories.filter(
@@ -24,18 +24,18 @@ class Browse extends Component {
         this.setState({active: tab, categories: filtered});
     }
 
+    //Her importerer vi nogle predefinerede components for at kunne lave placere/designe positionerne af vores tabs
     renderTab(tab){
     const {active} =this.state;
     const isActive = active === tab;
-
-    //secondary is a style that is set for the isactive tab
     return (
+        // Denne funktion viser designet af den pågældende tab man har trykket på. Altså om dens state er akitv og derfor får en anden style
         <TouchableOpacity
         key={`tab-${tab}`}
         onPress={() => this.handleTab(tab)}
         style={(
             styles.tab,
-            isActive ? styles.active : null //undersøg hvad det her er for en syntax
+            isActive ? styles.active : null
         )}
         >
             <Text title medium gray={!isActive} secondary={isActive}> {tab} </Text> 
@@ -43,14 +43,14 @@ class Browse extends Component {
     )
     }
 
-
+    //Dette er vores kategorier
     render() {
         const{navigation} = this.props;
         const{categories} = this.state;
-        const tabs = ['Semesters', 'Your Courses', 'Favorites'] //Det her skal være vores kategorier. Alle produkter, dine kurser, køb kurser. Skal ændres inde i "kategorier"
-//Find ud af hvad der sker i touchable opacity funktionen
-//Find ud af hvad der sker categories.map
-//Indholdet i hvert card findes ligesom ved class.getname i java ish. 
+        const tabs = ['Semesters', 'Your Courses', 'Favorites'] 
+
+//Dette er implementeringen af vores header funktion med tilhørende text og settings icon samt "onPress" skal føres os videre til settings siden.
+//under dette laver vi vores array af tabs.
         return (
             <Block>
                 <Block flex={false} row center space="between" style={styles.header}>
@@ -62,7 +62,7 @@ class Browse extends Component {
                      />
                     </Button>
                 </Block>
-
+                
                 <Block flex={false} space="around" row style={styles.tabs}>
                     {tabs.map(tab => this.renderTab(tab))}
                 </Block>
@@ -71,6 +71,7 @@ class Browse extends Component {
                 >
                     <Block flex={false} row space="between" style={styles.categories}> 
                     {categories.map(category => (
+                    // Her laves funktionen der gør vi kan trykke på et semester og blive viderstillet til Explore screen samt designet på disse kategorier
                      <TouchableOpacity 
                      key = {category.name}
                      onPress={() => navigation.navigate('Explore', {category})}>
@@ -97,6 +98,7 @@ Browse.defaultProps = {
 }
 export default Browse;
 
+//Her bliver alt vores indhold designet
 const styles = StyleSheet.create({
     header: {
         paddingHorizontal: theme.sizes.base * 2 
@@ -126,7 +128,6 @@ const styles = StyleSheet.create({
         marginBottom: theme.sizes.base*3.5,
     },
     category:{
-        //This should be dynamic based on screen width 
         width: 150,
         height: 150,
     },

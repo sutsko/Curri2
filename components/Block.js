@@ -3,7 +3,7 @@ import { StyleSheet, View, Animated } from 'react-native'
 
 import { theme } from '../constants';
 
-
+// Denne component er en lang række prædefineret styles til vores Block som kan implmenteres direkte i vores Screens. Vores er ligesom et view. 
 
 export default class Block extends Component {
   handleMargins() {
@@ -125,7 +125,7 @@ export default class Block extends Component {
     const blockStyles = [
       styles.block,
       flex && { flex },
-      flex === false && { flex: 0 }, // reset / disable flex
+      flex === false && { flex: 0 },
       row && styles.row,
       column && styles.column,
       center && styles.center,
@@ -140,9 +140,9 @@ export default class Block extends Component {
       shadow && styles.shadow,
       space && { justifyContent: `space-${space}` },
       wrap && { flexWrap: 'wrap' },
-      color && styles[color], // predefined styles colors for backgroundColor
-      color && !styles[color] && { backgroundColor: color }, // custom backgroundColor
-      style, // rewrite predefined styles
+      color && styles[color], 
+      color && !styles[color] && { backgroundColor: color }, 
+      style, 
     ];
 
     if (animated) {
