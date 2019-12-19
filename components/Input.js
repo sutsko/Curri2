@@ -7,6 +7,9 @@ import Block from './Block';
 import Button from './Button';
 import { theme } from '../constants';
 
+// Denne component gør det muligt at implmentere funktioner der gør brugeren i stand til at indtaste text, som i vores login funktion. 
+// React native har i forvejen indput muligheder, men denne funktioner giver yderligere funktioner.
+
 export default class Input extends Component {
   state = {
     toggleSecure: false,

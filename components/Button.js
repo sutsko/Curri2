@@ -3,6 +3,8 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '../constants';
 
+// Denne component indeholder buttons/knapper samt design som vi kan bruge i vores Screen views 
+
 class Button extends Component {
   render() {
     const {
@@ -23,8 +25,8 @@ class Button extends Component {
     const buttonStyles = [
       styles.button,
       shadow && styles.shadow,
-      color && styles[color], // predefined styles colors for backgroundColor
-      color && !styles[color] && { backgroundColor: color }, // custom backgroundColor
+      color && styles[color], 
+      color && !styles[color] && { backgroundColor: color }, 
       style,
     ];
 

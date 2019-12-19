@@ -4,6 +4,8 @@ import { StyleSheet } from 'react-native';
 import Block from './Block';
 import { theme } from '../constants';
 
+// Denne component gør det muligt at tilføje cards i vores screens og indeholder desuden design. 
+
 export default class Card extends Component {
   render() {
     const { color, style, children, ...props } = this.props;
