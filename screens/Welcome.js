@@ -82,7 +82,7 @@ renderIllustration() skal danne vores horisonterbart scrollene billeder. Vores F
                 showsHorizontalScrollIndicator={false}
                 data={illustrations}
                 extraData={this.state} 
-                keyExtractor={(index, item) => `${item.id}`}
+                keyExtractor={(item) => `${item.id}`}
                 renderItem={({item}) => (
                     <Image 
                         source={item.source} 
