@@ -17,6 +17,7 @@ const{width, height} = Dimensions.get('window');
     static navigationOptions= ({navigation}) => {
         return {
             headerRight: (
+                //Mest bare for udseendet skyld. 
                 <Button onPress={() => {}}>
                     <Icon.Entypo name="dots-three-horizontal" color={theme.colors.gray} />
                 </Button>
@@ -49,10 +50,9 @@ renderGallery(){
 
     render() {
         const {product} = this.props;
-        //find ud af hvad product.images.slice betyder. 
+        /* Vi bruger map() funktionen på vores tag array som produktet har. Den itererer igennem alle tagsene og returnerer dem i det template vi definerer.  
+        Template indeni  map() funktionen indeholder en text komponent til tag navnet */
         return (
-        
-
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Block style={{width, height: height / 2.8 }}>
                     
@@ -119,6 +119,7 @@ renderGallery(){
     }
 }
 
+// Vi definerer vores default prop data (product) til kun at være produkt nr. 1 (VØS 1) fra vores mocks import.
 Product.defaultProps ={
     product: mocks.products[0], //det her kan man nok ændre på, så det ikke kun er produkt index 0, som er det eneste den referer til
 }

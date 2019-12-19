@@ -15,11 +15,11 @@ class Settings extends Component {
         editing: null,
         profile: {},
     }
-    // Vi initierer profil state variabel til profil prop data
+    // Vi initierer profil state variabel til profil prop data. Dette er defineret nede i default props. 
     componentDidMount(){
         this.setState({profile: this.props.profile});
     }
-    // Denne funktion tager navnet på brugeren og tekst værdi fra input component for at kunne ændre og gemme i input felterne.
+    // Denne funktion tager navnet på brugeren og tekst værdi fra input component for at kunne ændre og gemme i input felterne. Derefter sættes state til det nye navn.
     handleEdit(name, text) {
         const{profile} = this.state;
         profile[name] = text;
@@ -29,10 +29,10 @@ class Settings extends Component {
     // Denne funktioner gør det muligt for os at ændre i informationer ved at klikke på "edit" knappen.
     toggleEdit (name) {
         const {editing} = this.state
-        // Vi ændrer "editing" state på baggrund af den værdi fra edit, til enten navn eller null
+        // Vi ændrer "editing" state på baggrund af den værdi fra edit, til enten navn eller null ***
         this.setState({editing: !editing ? name : null}) 
     }
-    // Denne funktion retunerer enten TextInput eller Test componenten baseret på værdien fra editing state værdien som er sat af toogleEdit
+    // Denne funktion retunerer enten TextInput eller Text componenten baseret på værdien fra editing state værdien som er sat af toogleEdit
     renderEdit (name) {
         const {profile, editing} = this.state;
 
