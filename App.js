@@ -51,12 +51,11 @@ export default class App extends React.Component{
   /* I sammenhæng med caching array'et ovenfor skulle følgende handlerecoursesAsync også implementeres: 
    Meningen er at vi definerer en cacheImages konstant som bliver initieret til map() array funktionen - som mapper vores images konstant altså.
    Selve map() af array'et funktionen fungerer ved at iterere gennem hvert eneste billede i array'et og returner dem til at være cached i download.  
-   Denne cache bliver så returneret via et "Promise" 
-  Lastly, this function returns the cacheImages constant as a Promise. 
+   Denne cache bliver så returneret via et "Promise". Et Promise er et løfte om asynkront at sende noget tilbage.  
   */
   handleresourcesAsync = async () => {
-    //We are caching all the images
-    //For better performance on the app
+    //Caching af alle billeder
+    //For bedre performance i app'en
     const cacheImages = images.map(image => {
       return Asset.fromModule(image).downloadAsync();
     });
@@ -65,9 +64,14 @@ export default class App extends React.Component{
   }
 
  render(){
-   //So if loading is not complete and you cant skip loading screen: 
-   // Get all images and cache them, if there is an error, diplay it. 
-   //When the async function finished, set a new state. 
+
+  /* I render funktionen har vi læst os til, at man kan bruge AppLoading komponenten til at hjælpe med ast håndtere bl.a. chachingen.
+  Dette gør den på baggrund af state-variablen isLoadingComplete, som håndterer hvorvidt appen stadig loader eller ej. 
+  Hvis isLoadingComplete er falsk returneres Apploading komponenten og hvis ikke bliver Navigation komponentetn returneret.
+  1. Så hvis loading ikke er færdigt, kan man ikke skippe loading skærmen
+  2. Hent alle billeder og cache dem, og hvis der er en fejl, så vises det
+  3. Så den asynkrone funktion er færdig, sættes state til true*/
+  
    if(!this.state.isLoadingComplete && !this.props.skipLoadingScreen){
      return (
        <AppLoading 
