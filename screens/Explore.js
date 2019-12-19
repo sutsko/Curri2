@@ -234,7 +234,6 @@ class Explore extends Component {
 
 {
                 searchBasedCourses.map(course => (
-                    //Vi sender videre til Product skærmen ved at tilpasse det kursus-id'et. Vi sender dog altid til vøs lige nu. 
                     <TouchableOpacity key={course.itemId} onPress={() => navigation.navigate('Product')}>
                         <RecommendedCardItem
                             itemName={ course.itemName }

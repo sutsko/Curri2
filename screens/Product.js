@@ -17,7 +17,7 @@ const{width, height} = Dimensions.get('window');
     static navigationOptions= ({navigation}) => {
         return {
             headerRight: (
-                //Mest bare for udseendet skyld. 
+                
                 <Button onPress={() => {}}>
                     <Icon.Entypo name="dots-three-horizontal" color={theme.colors.gray} />
                 </Button>
