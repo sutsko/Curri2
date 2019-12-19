@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
 import firebase from 'firebase';
 
 import {AppLoading} from 'expo';
@@ -8,10 +8,9 @@ import {Asset} from 'expo-asset';
 import Navigation from './navigation';
 import {Block} from './components';
 
-//import all used images
+//Vi kan importere alle billederne og cache dem på følgende måde (gemme billederne i et array). Kan vi måske implementere senere?
 const images = [
   require('./assets/icons/settings.png'),
-  //Can be used as caching mechanism 
 ];
 
 export default class App extends React.Component{
@@ -48,6 +47,13 @@ export default class App extends React.Component{
       });
   }
 
+
+  /* I sammenhæng med caching array'et ovenfor skulle følgende handlerecoursesAsync også implementeres: 
+   Meningen er at vi definerer en cacheImages konstant som bliver initieret til map() array funktionen - som mapper vores images konstant altså.
+   Selve map() af array'et funktionen fungerer ved at iterere gennem hvert eneste billede i array'et og returner dem til at være cached i download.  
+   Denne cache bliver så returneret via et "Promise" 
+  Lastly, this function returns the cacheImages constant as a Promise. 
+  */
   handleresourcesAsync = async () => {
     //We are caching all the images
     //For better performance on the app

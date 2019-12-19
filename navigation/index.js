@@ -12,6 +12,14 @@ import Profile from '../screens/Profile';
 
 import {theme} from '../constants'
 
+/*
+createStackNavigator'en som vi importerer fra react-navigation tillader at holde at vores skærme "stacked" i en container som vi kan navigere imellem skærmene i.
+Skærmene importerer vi fra screens-mappen, som bruges som første argument i createStackNavigator funktionen. Som andet argument i funktionen har vi konfigureret nogle 
+defaultNavigationOptions, som bliver default for alle skærmene. 
+
+createAppContaineren indholder vores skærmnavigator "screens", som binder alle vores skærme sammen. 
+ */
+
 const screens = createStackNavigator({
 Welcome,
 Login,
