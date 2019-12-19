@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 
-import {Card, Badge, Button, Block, Text, Course} from '../components';
+import {Card, Button, Block, Text} from '../components';
 import { theme, mocks } from '../constants';
 
 class Browse extends Component {
@@ -75,9 +75,9 @@ class Browse extends Component {
                      key = {category.name}
                      onPress={() => navigation.navigate('Explore', {category})}>
                         <Card center middle shadow style={styles.category}>
-                            <Badge margin={[0,0,15]} size={50} color={theme.colors.secondary}>
-                                <Image styles={styles.images} source={category.image} ></Image>
-                            </Badge>
+
+                                <Image source={category.image} ></Image> 
+                            
                             <Text medium height={20}>{category.name} </Text>
                             <Text gray caption>{category.count} videos </Text>
                         </Card>
